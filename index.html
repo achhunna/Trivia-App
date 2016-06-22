@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Trivia</title>
+	<!-- 3rd Party Libraries -->
+	<script src="http://code.jquery.com/jquery-2.2.2.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-animate.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-cookies.js"></script>
+
+	<!-- Latest compiled and minified CSS -->
+
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href='http://fonts.googleapis.com/css?family=Exo+2:900' rel='stylesheet' type='text/css'>
+
+
+	<!-- My scripts and styles -->
+	<script src="js/script.js"></script>
+	<script src="js/app.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/styles.css" />
+
+	<!-- Viewport meta tag for mobile -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+</head>
+
+<body ng-app="trivia">
+	<div class="container">
+		<div class="container-fluid title">
+			<div>
+				<h1>Flipcup Trivia</h1>
+				<div class=""><a href="" onclick="openSecondScreen();">Rules</a></div>
+			</div>
+			<br><br>
+			<h4>Spin the wheel!</h4>
+		</div>
+
+		<!-- Credit: Trivia Crack Inspired - Spinning Wheel by Andre Cortellini (https://codepen.io/AndreCortellini/) -->
+		<div id="wrapper">
+
+			<div id="wheel">
+				<div id="inner-wheel">
+					<div class="sec" id="Technology"><span class="fa fa-mobile-phone"></span></div>
+					<div class="sec" id="Geography"><span class="fa fa-globe"></span></div>
+					<div class="sec" id="EA"><span class="fa fa-gamepad"></span></div>
+					<div class="sec" id="Movies"><span class="fa fa-film"></span></div>
+					<div class="sec" id="Science"><span class="fa fa-flask"></span></div>
+					<div class="sec" id="Music"><span class="fa fa-music"></span></div>
+				</div>
+
+				<div id="spin">
+					<div id="inner-spin"></div>
+				</div>
+					<div id="shine"></div>
+			</div>
+		</div>
+
+		<div id="screen" class="overlay" ng-controller="screenController">
+			<div id="secondScreen" class="hideSecondScreen">
+				<div class="header">
+
+					<div class="close"><a href="" onclick="closeScreen();">x</a></div>
+				</div>
+				<div class="rules">
+					Rules of the Game
+					<br><br>
+					<ul>
+						<li class="rules">1. Each team needs a designated cup flipper.</li>
+						<li class="rules">2. Game begins when the first question appears on screen.</li>
+						<li class="rules">3. Teams are allowed to discuss before answering.</li>
+						<li class="rules">4. Team that succesfully flips their cup goes first. Both teams get to answer.</li>
+						<li class="rules">5. One point per correct answer, no penalty for wrong.</li>
+						<li class="rules teamA">Team A: Calvin, Colby, Lenn, Renju</li>
+						<li class="rules teamB">Team B: Andrew, Khaleem, Liza, Stephanie</li>
+					</ul>
+				</div>
+			</div>
+			<div class="header">
+				<div class="category">{{ triviaData["category"] }}</div>
+				<div class="close"><a href="" onclick="closeScreen();">x</a></div>
+			</div>
+
+			<div class="question">{{ triviaData["question"] }}</div>
+			<div class="response" ng-class="response.class">{{ response.message }}{{ response.symbol }}</div>
+			<br><br>
+			<div class="choice"><a href="" ng-click="checkAnswer(triviaData['answer'], 0);">a. {{ triviaData["option"][0] }}</a></div>
+			<div class="choice"><a href="" ng-click="checkAnswer(triviaData['answer'], 1);">b. {{ triviaData["option"][1] }}</a></div>
+			<div class="choice"><a href="" ng-click="checkAnswer(triviaData['answer'], 2);">c. {{ triviaData["option"][2] }}</a></div>
+			<div class="choice"><a href="" ng-click="checkAnswer(triviaData['answer'], 3);">d. {{ triviaData["option"][3] }}</a></div>
+		</div>
+
+		<div class="footer">
+		&copy; 2016 Achhunna. All rights reserved.
+		</div>
+	</div>
+</body>
+</html>
