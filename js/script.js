@@ -52,6 +52,7 @@ $(document).ready(function(){
 					}, 100);
 					//console.log(t);
 					selectedCategory = returnCategory(t.attr("id"));
+					$("#categorySelected").html(selectedCategory);
 					//selectedCategory = returnCategory("Movies");
 				}
 			}, 10);
