@@ -33,9 +33,10 @@ trivia.controller("screenController", function($scope, $http, $timeout, $interva
 			};
 			if(counter === 0){
 				$scope.stop();
+				//Show for 2 secs, before closing screen
 				$timeout(function(){
-					$scope.response = {};
-				}, 3000)
+					closeScreen();
+				}, 2000)
 				$scope.response = {
 					message: "Time",
 					symbol: "!",
@@ -76,6 +77,10 @@ trivia.controller("screenController", function($scope, $http, $timeout, $interva
 	$scope.checkAnswer = function(answer, option){
 		$scope.stop();
 		if(answer === option){
+			//Show for 2 secs, before closing screen
+			$timeout(function(){
+				closeScreen();
+			}, 2000)
 			$timeout(function(){
 				$scope.response = {
 						message: "Right",

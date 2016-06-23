@@ -29,7 +29,7 @@
 	<div class="container">
 		<div class="container-fluid title">
 			<div>
-				<h1>Flipcup Trivia</h1>
+				<h1>Trivia</h1>
 				<div class=""><a href="" onclick="openSecondScreen();">Rules</a></div>
 			</div>
 			<br><br>
@@ -59,9 +59,9 @@
 		</div>
 
 		<div id="screen" class="overlay" ng-controller="screenController">
+
 			<div id="secondScreen" class="hideSecondScreen">
 				<div class="header">
-
 					<div class="close"><a href="" onclick="closeScreen();">x</a></div>
 				</div>
 				<div class="rules">
@@ -73,11 +73,23 @@
 						<li class="rules">3. Teams are allowed to discuss before answering.</li>
 						<li class="rules">4. Team that succesfully flips their cup goes first. Both teams get to answer.</li>
 						<li class="rules">5. One point per correct answer, no penalty for wrong.</li>
-						<li class="rules teamA">Team A: Calvin, Colby, Lenn, Renju</li>
-						<li class="rules teamB">Team B: Andrew, Khaleem, Liza, Stephanie</li>
 					</ul>
 				</div>
 			</div>
+
+			<!--
+			<div id="secondScreen" class="hideSecondScreen">
+				<div class="header">
+
+					<div class="close"><a href="" onclick="closeScreen();">x</a></div>
+				</div>
+				<div class="response">
+					Winner
+					<br><br>
+					<div class="teamB">Team B</div>
+				</div>
+			</div>
+			-->
 			<div class="header">
 				<div class="category">{{ triviaData["category"] }}</div>
 				<div class="close"><a href="" onclick="closeScreen();">x</a></div>
