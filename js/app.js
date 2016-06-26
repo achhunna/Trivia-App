@@ -1,6 +1,25 @@
 var trivia = angular.module("trivia", []);
 
-trivia.controller("screenController", function($scope, $http, $timeout, $interval){
+//Create factory for common app functions
+trivia.factory("$myService", function(){
+	return{
+		scramble: function(array){
+			var length = array.length;
+			var scrambledArray = [];
+			var randomIndex = 0;
+			for(i=0; i<length; i++){
+				randomIndex = Math.floor(Math.random()*array.length);
+				console.log(randomIndex);
+				scrambledArray[i] = array[randomIndex];
+				array.splice(randomIndex,1);				
+			}
+			return scrambledArray;
+		},
+	
+	};
+});
+
+trivia.controller("screenController", function($scope, $http, $timeout, $interval, $myService){
 
 	var url = "js/qna.json";
 	var counter = 0;
@@ -10,7 +29,9 @@ trivia.controller("screenController", function($scope, $http, $timeout, $interva
 
 	$http.get(url)
 		.success(function(data){
-			$scope.data = data;
+			$scope.data = $myService.scramble(data);
+			console.log($scope.data.length);
+			//$scope.data = data;
 			//$scope.triviaData = data[Math.floor(Math.random()*data.length)];
 		})
 		.error(function(err){
@@ -19,7 +40,7 @@ trivia.controller("screenController", function($scope, $http, $timeout, $interva
 
 	//Start Timer
 	$scope.reset = function(){
-		counter = 20;
+		counter = 10;
 	}
 	$scope.start = function(){
 
