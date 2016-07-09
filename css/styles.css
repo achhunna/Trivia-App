@@ -57,9 +57,9 @@ body {
 #inner-wheel {
 	width: 100%;
 	height: 100%;
-
+	
 	-webkit-transition: all 6s cubic-bezier(0,.99,.44,.99);
-	-moz-transition:    all 6 cubic-bezier(0,.99,.44,.99);
+	-moz-transition:    all 6s cubic-bezier(0,.99,.44,.99);
 	-o-transition:      all 6s cubic-bezier(0,.99,.44,.99);
 	-ms-transition:     all 6s cubic-bezier(0,.99,.44,.99);
 	transition:         all 6s cubic-bezier(0,.99,.44,.99);
@@ -239,7 +239,7 @@ body {
 
 
 
-/*ANIMATION*/
+/* Animation of wheel marker */
 @-webkit-keyframes hh {
   0%, 100% {
     transform: rotate(0deg);
@@ -265,8 +265,8 @@ body {
 }
 
 .spin {
-  -webkit-animation: hh 0.1s; /* Chrome, Safari, Opera */
-    animation: hh 0.1s;
+	-webkit-animation: hh 0.1s; /* Chrome, Safari, Opera */
+	animation: hh 0.1s;
 }
 
 .container {

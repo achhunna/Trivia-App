@@ -9,13 +9,13 @@ trivia.factory("$myService", function(){
 			var randomIndex = 0;
 			for(i=0; i<length; i++){
 				randomIndex = Math.floor(Math.random()*array.length);
-				console.log(randomIndex);
+				//console.log(randomIndex);
 				scrambledArray[i] = array[randomIndex];
-				array.splice(randomIndex,1);				
+				array.splice(randomIndex,1);
 			}
 			return scrambledArray;
 		},
-	
+
 	};
 });
 
@@ -30,7 +30,7 @@ trivia.controller("screenController", function($scope, $http, $timeout, $interva
 	$http.get(url)
 		.success(function(data){
 			$scope.data = $myService.scramble(data);
-			console.log($scope.data.length);
+			//console.log($scope.data.length);
 			//$scope.data = data;
 			//$scope.triviaData = data[Math.floor(Math.random()*data.length)];
 		})

@@ -21,7 +21,7 @@ $(document).ready(function(){
 		var extraDegree = Math.floor(Math.random() * (360 - 1 + 1)) + 1;
 		totalDegree = newDegree + extraDegree;
 
-		/*let's make the spin btn to tilt every
+		/*let"s make the spin btn to tilt every
 		time the edge of the section hits
 		the indicator*/
 		$("#inner-wheel .sec").each(function(){
@@ -57,8 +57,14 @@ $(document).ready(function(){
 				}
 			}, 10);
 
+			//Spin inner wheel
 			$("#inner-wheel").css({
-				"transform" : "rotate(" + totalDegree + "deg)"
+				"-webkit-transform" : "rotate(" + totalDegree + "deg)",
+				"-moz-transform"    : "rotate(" + totalDegree + "deg)",
+				"-ms-transform"     : "rotate(" + totalDegree + "deg)",
+				"-o-transform"      : "rotate(" + totalDegree + "deg)",
+				"transform"         : "rotate(" + totalDegree + "deg)"
+				/*"-webkit-transform" : "rotate(0deg)",*/
 			});
 
 			noY = t.offset().top;
